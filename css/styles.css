@@ -1,3 +1,4 @@
+
 :root{
     --color-primary:#2584ff;
     --color-secondary:#00d9ff;
@@ -7,6 +8,11 @@
     --color-body-darker:#5c5577;
     --color-border:#ccc;
     --border-radius:30px;
+}
+
+::selection{
+    background-color:var(--color-primary);
+    color: white;
 }
 
 *, *::after,*::before{
@@ -67,6 +73,7 @@ p{
     
     h3{
         font-size: 2.4rem;
+        font-weight: 500;
     }
 }
 
@@ -138,7 +145,6 @@ a{
 .list{
     list-style: none;
     padding-left: 0;
-    color:var(--color-headings)
 }
 
 .list--inline .list__item{
@@ -149,6 +155,7 @@ a{
 .list--tick{
     list-style-image:url(../images/tick.svg) ;
     padding-left: 3rem;
+    color:var(--color-headings)
 }
 
 .list--tick .list__item{
@@ -434,6 +441,7 @@ transition: transform 0.2s ease-out;
 /* Media */
 .media{
     display: flex;
+    margin-bottom: 4rem;
 }
 
 .media__title{
@@ -643,20 +651,22 @@ transition: transform 0.2s ease-out;
     color: #7b858b;
 }
 
-.block--dark .block__heading{
+.block--dark h1,
+.block--dark h2,
+.block--dark h3{
     color: #fff;
 }
 
 .block--skewed-right{
     /* x y top left , xy top right , x y bottom right, x y bottom left   */
     padding-bottom: calc(var(--padding-vertical) + 4rem);
-    clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 80%);
+    clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 90%);
 }
 
 .block--skewed-left{
     /* x y top left , xy top right , x y bottom right, x y bottom left   */
     padding-bottom: calc(var(--padding-vertical) + 4rem);
-    clip-path: polygon(0 0%, 100% 0, 100% 80%, 0 100%);
+    clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
 }
 
 .container{
@@ -728,10 +738,6 @@ transition: transform 0.2s ease-out;
 }
 
 /* Hero */
-.hero{
-    clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
-}
-
 .hero__tagline {
     font-size: 2rem;
     color: #b9c3cf;
@@ -819,5 +825,47 @@ transition: transform 0.2s ease-out;
 @media screen and (min-width:768px){
     .feature:nth-of-type(even) .feature__content{
         order: 2;
+    }
+}
+
+
+/* ShowCase Block */
+.block-showcase .block__header{
+    margin-bottom: 4%;
+}
+
+.block-showcase .grid{
+    justify-items: center;
+    gap: 6rem 2rem;
+}
+
+.showcase__content{
+    margin-bottom: 8rem;
+}
+
+.showcase__content .media{
+    padding: 6rem 4rem;
+}
+
+.showcase__image > img{
+    width: 100%;
+}
+
+@media screen and (min-width:768px){
+    .block-showcase .grid{
+        grid-template-columns: 50% 50%;
+    }
+
+    .showcase__content .media{
+        padding: 3rem 0rem;
+    }
+
+    .showcase__image{
+        justify-self: end;
+    }
+
+    .showcase__image > img {
+        width: auto;
+        max-width: 700px;
     }
 }
